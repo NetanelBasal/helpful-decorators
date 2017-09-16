@@ -1,6 +1,6 @@
 {
   "name": "helpful-decorators",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Helpful decorators for typescript applications",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -20,6 +20,7 @@
     "commit": "git cz",
     "prepublish": "npm run build",
     "setup": "semantic-release-cli setup",
+    "release": "standard-version",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "config": {
@@ -49,6 +50,7 @@
     "typescript": "^2.5.2"
   },
   "dependencies": {
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "standard-version": "^4.2.0"
   }
 }
