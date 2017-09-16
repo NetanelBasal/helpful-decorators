@@ -1,7 +1,10 @@
-import { timeout, debounce } from '../src';
+import { timeout, debounce, throttle } from '../src';
 jest.mock('lodash.debounce');
+jest.mock('lodash.throttle');
+import * as throttleFn from 'lodash.throttle';
 import * as debounceFn from 'lodash.debounce';
 jest.useFakeTimers();
+
 describe('Decorators', () => {
 
   describe('timeout', function () {
@@ -34,18 +37,38 @@ describe('Decorators', () => {
     debounceFn['mockImplementation'](function () {
       return func;
     });
-    class TestA {
+    class TestDebounce {
       @debounce(3000)
       method() {
         console.log('Debounce Worked!');
       }
     }
     it('should call debounce', function () {
-      new TestA().method();
+      new TestDebounce().method();
       expect(debounceFn).toBeCalled();
       expect(debounceFn['mock'].calls[0][1]).toEqual(3000);
       expect(debounceFn['mock'].calls[0][2]).toEqual({});
     });
   })
 
+  describe('throttle', function () {
+    const func = function () {
+      return 'called';
+    }
+    throttleFn['mockImplementation'](function () {
+      return func;
+    });
+    class TestThrottle {
+      @throttle(3000)
+      method() {
+        console.log('Throttle Worked!');
+      }
+    }
+    it('should call throttle', function () {
+      new TestThrottle().method();
+      expect(debounceFn).toBeCalled();
+      expect(debounceFn['mock'].calls[0][1]).toEqual(3000);
+      expect(debounceFn['mock'].calls[0][2]).toEqual({});
+    });
+  })
 });

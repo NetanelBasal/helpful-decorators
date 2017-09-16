@@ -1,5 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ *
+ * @param milliseconds
+ * @returns {(target:any, propertyKey:string, descriptor:PropertyDescriptor)=>PropertyDescriptor}
+ */
 function timeout(milliseconds) {
     if (milliseconds === void 0) { milliseconds = 0; }
     return function (target, propertyKey, descriptor) {

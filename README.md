@@ -24,14 +24,40 @@ class Test {
 }
 ```
 
-`debounce` - Add `debounce` functionality to the method
+`debounce` - Add `debounce` functionality to the method ([options](https://lodash.com/docs/4.17.4#debounce))
 ```ts
 import { debounce } from 'helpful-decorators';
 
 class Test {
- @debounce(1000)
+ @debounce(1000, options)
  method() {
    // ...
  }
 }
 ```
+
+`throttle` - Add `throttle` functionality to the method ([options](https://lodash.com/docs/4.17.4#throttle))
+```ts
+import { throttle } from 'helpful-decorators';
+
+class Test {
+ @throttle(1000, options)
+ method() {
+   // ...
+ }
+}
+```
+
+### Roadmap
+
+ - ~~timeout~~
+ - ~~debounce~~
+ - ~~throttle~~
+ - memoize
+ - once
+ - ...
+ 
+License
+----
+
+MIT
