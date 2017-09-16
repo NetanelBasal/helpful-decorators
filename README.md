@@ -14,20 +14,24 @@ yarn add helpful-decorators
 ## Usage
 `timeout` - Add `setTimeout` functionality to the method
 ```ts
-  class Test {
-    @timeout(1000)
-    method() {
-      // ...
-    }
-  }
+import { timeout } from 'helpful-decorators';
+
+class Test {
+ @timeout(1000)
+ method() {
+   // ...
+ }
+}
 ```
 
 `debounce` - Add `debounce` functionality to the method
 ```ts
-  class Test {
-    @debounce(1000)
-    method() {
-      // ...
-    }
-  }
+import { debounce } from 'helpful-decorators';
+
+class Test {
+ @debounce(1000)
+ method() {
+   // ...
+ }
+}
 ```
