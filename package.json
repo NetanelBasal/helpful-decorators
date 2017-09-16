@@ -22,6 +22,11 @@
     "setup": "semantic-release-cli setup",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/NetanelBasal/helpful-decorators"
@@ -36,6 +41,7 @@
   "devDependencies": {
     "@types/jest": "^20.0.8",
     "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "jest": "^21.0.1",
     "semantic-release": "^7.0.2",
     "semantic-release-cli": "^3.0.3",
