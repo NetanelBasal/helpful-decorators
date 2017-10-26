@@ -6,6 +6,7 @@
     "declaration": true,
     "outDir": "./dist",      
     "noImplicitAny": false,
+    "experimentalDecorators": true,
     "strict": true,                
     "noUnusedLocals": true,
     "noEmitOnError": true,

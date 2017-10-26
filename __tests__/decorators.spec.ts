@@ -1,12 +1,12 @@
-import { timeout, debounce, throttle } from '../src';
+import { timeout, debounce, throttle, once } from '../src';
 jest.mock('lodash.debounce');
 jest.mock('lodash.throttle');
 import * as throttleFn from 'lodash.throttle';
 import * as debounceFn from 'lodash.debounce';
 jest.useFakeTimers();
 
-describe('Decorators', () => {
 
+describe('Decorators', () => {
   describe('timeout', function () {
     class Test {
       @timeout(1000)
@@ -69,6 +69,24 @@ describe('Decorators', () => {
       expect(debounceFn).toBeCalled();
       expect(debounceFn['mock'].calls[0][1]).toEqual(3000);
       expect(debounceFn['mock'].calls[0][2]).toEqual({});
+    });
+  });
+
+  describe('once', function () {
+    class TestOnce {
+      @once
+      method() {
+        console.warn('Once Worked!');
+      }
+    }
+    it('should call the method only once', function () {
+      const instance = new TestOnce();
+      const consoleSpy = jest.spyOn(console, 'warn');
+      instance.method();
+      instance.method();
+      instance.method();
+      expect(consoleSpy).toBeCalled();
+      expect(consoleSpy).toHaveBeenCalledTimes(1);
     });
   })
 });

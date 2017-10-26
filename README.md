@@ -48,13 +48,25 @@ class Test {
 }
 ```
 
+`once` - Add `once` functionality to the method
+```ts
+import { once } from 'helpful-decorators';
+
+class Test {
+ @once
+ method() {
+   // This will run only once
+ }
+}
+```
+
 ### Roadmap
 
  - ~~timeout~~
  - ~~debounce~~
  - ~~throttle~~
+ - ~~once~~
  - memoize
- - once
  - ...
  
 License
