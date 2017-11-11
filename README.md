@@ -61,12 +61,25 @@ class Test {
 }
 ```
 
+`measure` - measure time taken by a function to execute
+```ts
+import { measure } from 'helpful-decorators';
+
+class Test {
+ @measure
+ doSomething() {
+   // Call to doSomething took 0.35 milliseconds.
+ }
+}
+```
+
 ### Roadmap
 
  - ~~timeout~~
  - ~~debounce~~
  - ~~throttle~~
  - ~~once~~
+ - ~~measure~~
  - memoize
  - ...
  
