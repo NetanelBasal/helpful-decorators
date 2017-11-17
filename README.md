@@ -13,12 +13,12 @@ yarn add helpful-decorators
 ```
 
 ## Usage
-`timeout` - Add `setTimeout` functionality to the method
+`delay` - Add `setTimeout` functionality to the method
 ```ts
-import { timeout } from 'helpful-decorators';
+import { delay } from 'helpful-decorators';
 
 class Test {
- @timeout(1000)
+ @delay(1000)
  method() {
    // ...
  }
@@ -84,7 +84,7 @@ class Test {
 
 ### Roadmap
 
- - ~~timeout~~
+ - ~~delay~~
  - ~~debounce~~
  - ~~throttle~~
  - ~~once~~

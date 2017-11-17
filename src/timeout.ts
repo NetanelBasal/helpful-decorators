@@ -1,5 +1,5 @@
 /**
- *
+ * @deprecated since version 1.5.0
  * @param milliseconds
  * @returns {(target:any, propertyKey:string, descriptor:PropertyDescriptor)=>PropertyDescriptor}
  */
