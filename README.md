@@ -73,6 +73,15 @@ class Test {
 }
 ```
 
+`Mixin` - this pattern is used to achieve multiple inheritance
+```ts
+import { Mixin } from 'helpful-decorators';
+
+@Mixin([Disposable, Activatable])
+class Test {
+}
+```
+
 ### Roadmap
 
  - ~~timeout~~
@@ -80,6 +89,7 @@ class Test {
  - ~~throttle~~
  - ~~once~~
  - ~~measure~~
+ - ~~Mixin~~
  - memoize
  - ...
  
