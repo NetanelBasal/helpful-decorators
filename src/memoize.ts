@@ -1,14 +1,11 @@
 import memoizeFn from 'lodash.memoize';
-
-export interface Resolver {
-  (...args: any[]): any;
+/**
+ * 
+ * @param resolver 
+ */
+export function memo( resolver) {
+  return function ( target : any, propertyKey : string, descriptor : PropertyDescriptor ) {
+    descriptor.value = memoizeFn(descriptor.value, resolver);
+    return descriptor;
+  }
 }
-
-export default (resolver?: Resolver) => (
-  target: any,
-  key: string,
-  descriptor: PropertyDescriptor
-): PropertyDescriptor => {
-  descriptor.value = memoizeFn(descriptor.value, resolver);
-  return descriptor;
-};
