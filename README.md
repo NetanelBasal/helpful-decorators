@@ -14,7 +14,8 @@ yarn add helpful-decorators
 
 ## Usage
 `delay` - Add `setTimeout` functionality to the method
-```ts
+
+```js
 import { delay } from 'helpful-decorators';
 
 class Test {
@@ -26,7 +27,7 @@ class Test {
 ```
 
 `debounce` - Add `debounce` functionality to the method ([options](https://lodash.com/docs/4.17.4#debounce))
-```ts
+```js
 import { debounce } from 'helpful-decorators';
 
 class Test {
@@ -38,7 +39,7 @@ class Test {
 ```
 
 `throttle` - Add `throttle` functionality to the method ([options](https://lodash.com/docs/4.17.4#throttle))
-```ts
+```js
 import { throttle } from 'helpful-decorators';
 
 class Test {
@@ -50,7 +51,7 @@ class Test {
 ```
 
 `once` - Add `once` functionality to the method
-```ts
+```js
 import { once } from 'helpful-decorators';
 
 class Test {
@@ -62,7 +63,7 @@ class Test {
 ```
 
 `measure` - measure time taken by a function to execute
-```ts
+```js
 import { measure } from 'helpful-decorators';
 
 class Test {
@@ -74,7 +75,7 @@ class Test {
 ```
 
 `Mixin` - this pattern is used to achieve multiple inheritance
-```ts
+```js
 import { Mixin } from 'helpful-decorators';
 
 @Mixin([Disposable, Activatable])
@@ -83,7 +84,7 @@ class Test {
 ```
 
 `memo` - memoizes the result of the function
-```ts
+```js
 import { memo } from 'helpful-decorators';
 
 class Test {
