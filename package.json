@@ -1,6 +1,6 @@
 {
     "name": "helpful-decorators",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "Helpful decorators for typescript projects",
     "main": "dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -56,6 +56,7 @@
         "conventional-changelog-cli": "^1.3.3",
         "lodash.debounce": "^4.0.8",
         "lodash.delay": "^4.1.1",
+        "lodash.memoize": "^4.1.2",
         "lodash.once": "^4.1.1",
         "lodash.throttle": "^4.1.1"
     }

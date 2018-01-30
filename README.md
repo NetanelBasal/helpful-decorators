@@ -82,6 +82,19 @@ class Test {
 }
 ```
 
+`memo` - memoizes the result of the function
+```ts
+import { memo } from 'helpful-decorators';
+
+class Test {
+ 
+  @memo()
+  method() {
+    ...memoized
+  }
+}
+```
+
 ### Roadmap
 
  - ~~delay~~
@@ -90,7 +103,7 @@ class Test {
  - ~~once~~
  - ~~measure~~
  - ~~Mixin~~
- - memoize
+ - ~~memoize~~
  - ...
  
 License
