@@ -96,6 +96,27 @@ class Test {
 }
 ```
 
+`bind` - automatically bind methods to class instances
+```js
+import { bind } from 'helpful-decorators';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  constructor() {
+    document.body.addEventListener('click', this.onClick);
+  }
+
+  @bind
+  onClick($event) {
+    console.log($event);
+  }
+}
+```
+
 ### Roadmap
 
  - ~~delay~~
