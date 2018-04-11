@@ -1,6 +1,6 @@
 {
     "name": "helpful-decorators",
-    "version": "1.7.1",
+    "version": "1.7.2",
     "description": "Helpful decorators for typescript projects",
     "main": "dist/index.js",
     "typings": "./dist/index.d.ts",

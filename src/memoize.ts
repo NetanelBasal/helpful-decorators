@@ -1,4 +1,4 @@
-import memoizeFn from 'lodash.memoize';
+import * as memoizeFn from 'lodash.memoize';
 /**
  *
  * @param resolver
