@@ -1,6 +1,6 @@
 {
     "name": "helpful-decorators",
-    "version": "1.7.2",
+    "version": "1.8.0",
     "description": "Helpful decorators for typescript projects",
     "main": "dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -42,13 +42,13 @@
         "measure decorator"
     ],
     "devDependencies": {
-        "@types/jest": "^20.0.8",
+        "@types/jest": "^24.0.11",
         "commitizen": "^2.9.6",
         "cz-conventional-changelog": "^2.0.0",
-        "jest": "^21.0.1",
+        "jest": "^24.5.0",
         "semantic-release": "^7.0.2",
         "semantic-release-cli": "^3.0.3",
-        "ts-jest": "^21.0.0",
+        "ts-jest": "^24.0.0",
         "typescript": "^2.5.2",
         "rimraf": "^2.6.2"
     },
