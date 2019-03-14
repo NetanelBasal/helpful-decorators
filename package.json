@@ -1,63 +1,90 @@
 {
-    "name": "helpful-decorators",
-    "version": "1.8.0",
-    "description": "Helpful decorators for typescript projects",
-    "main": "dist/index.js",
-    "typings": "./dist/index.d.ts",
-    "jest": {
-        "moduleFileExtensions": [
-            "ts",
-            "js"
-        ],
-        "transform": {
-            "\\.(ts)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-        },
-        "testRegex": "/__tests__/.*\\.(ts|js)$"
-    },
-    "scripts": {
-        "build": "rimraf ./dist && tsc",
-        "test": "jest",
-        "commit": "git cz",
-        "prepublish": "npm run build",
-        "setup": "semantic-release-cli setup",
-        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-    },
-    "config": {
-        "commitizen": {
-            "path": "node_modules/cz-conventional-changelog"
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/NetanelBasal/helpful-decorators"
-    },
-    "license": "MIT",
-    "author": "Netanel Basal",
-    "keywords": [
-        "decorators",
-        "setTimeout decorator",
-        "debounce decorator",
-        "once decorator",
-        "mixin decorator",
-        "measure decorator"
+  "name": "helpful-decorators",
+  "version": "2.0.1",
+  "description": "Helpful decorators for typescript projects",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
     ],
-    "devDependencies": {
-        "@types/jest": "^24.0.11",
-        "commitizen": "^2.9.6",
-        "cz-conventional-changelog": "^2.0.0",
-        "jest": "^24.5.0",
-        "semantic-release": "^7.0.2",
-        "semantic-release-cli": "^3.0.3",
-        "ts-jest": "^24.0.0",
-        "typescript": "^2.5.2",
-        "rimraf": "^2.6.2"
+    "transform": {
+      "\\.(ts)$": "ts-jest"
     },
-    "dependencies": {
-        "conventional-changelog-cli": "^1.3.3",
-        "lodash.debounce": "^4.0.8",
-        "lodash.delay": "^4.1.1",
-        "lodash.memoize": "^4.1.2",
-        "lodash.once": "^4.1.1",
-        "lodash.throttle": "^4.1.1"
-    }
+    "testRegex": "/__tests__/.*\\.(ts|js)$"
+  },
+  "scripts": {
+    "publish": "pack publish",
+    "build": "pack build",
+    "prepublish": "npm run test",
+    "test": "jest",
+    "commit": "git cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NetanelBasal/helpful-decorators"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-web",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-types",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ]
+    ]
+  },
+  "license": "MIT",
+  "author": "Netanel Basal",
+  "keywords": [
+    "decorators",
+    "setTimeout decorator",
+    "debounce decorator",
+    "once decorator",
+    "mixin decorator",
+    "measure decorator"
+  ],
+  "devDependencies": {
+    "@pika/pack": "^0.3.5",
+    "@pika/plugin-build-node": "^0.3.14",
+    "@pika/plugin-build-types": "^0.3.14",
+    "@pika/plugin-build-web": "^0.3.14",
+    "@pika/plugin-standard-pkg": "^0.3.14",
+    "@types/jest": "24.0.11",
+    "jest": "24.5.0",
+    "ts-jest": "24.0.0",
+    "typescript": "3.3.3333"
+  },
+  "dependencies": {
+    "lodash.debounce": "4.0.8",
+    "lodash.delay": "4.1.1",
+    "lodash.memoize": "4.1.2",
+    "lodash.once": "4.1.1",
+    "lodash.throttle": "4.1.1"
+  }
 }
