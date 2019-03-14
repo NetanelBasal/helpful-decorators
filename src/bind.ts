@@ -1,11 +1,11 @@
-
 /**
- * 
+ *
  * Credit: https://github.com/andreypopp/autobind-decorator/blob/master/src/index.js
  * Return a descriptor removing the value and returning a getter
  * The getter will return a .bind version of the function
  * and memoize the result against a symbol on the instance
  */
+
 export function bind(target, key, descriptor) {
   let fn = descriptor.value;
 
@@ -21,8 +21,7 @@ export function bind(target, key, descriptor) {
   return {
     configurable: true,
     get() {
-      if (definingProperty || this === target.prototype || this.hasOwnProperty(key)
-        || typeof fn !== 'function') {
+      if (definingProperty || this === target.prototype || this.hasOwnProperty(key) || typeof fn !== 'function') {
         return fn;
       }
 
