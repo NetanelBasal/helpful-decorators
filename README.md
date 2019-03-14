@@ -28,7 +28,6 @@ class Test {
 
 `debounce` - Add `debounce` functionality to the method ([options](https://lodash.com/docs/4.17.4#debounce))
 
-**Note: Don't use this if you have multiple instances.**
 ```js
 import { debounce } from 'helpful-decorators';
 
