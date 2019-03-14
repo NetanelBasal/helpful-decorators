@@ -3,8 +3,8 @@ jest.mock('lodash.debounce');
 jest.mock('lodash.throttle');
 import * as throttleFn from 'lodash.throttle';
 import * as debounceFn from 'lodash.debounce';
-jest.useFakeTimers();
 
+jest.useFakeTimers();
 
 describe('Decorators', () => {
   describe('timeout', function () {
@@ -25,7 +25,7 @@ describe('Decorators', () => {
       const spy = jest.spyOn(console, 'log');
       new Test().method();
       jest.runAllTimers();
-      expect(spy).toBeCalled()
+      expect(spy).toBeCalled();
       expect(spy).toHaveBeenCalledWith('Worked');
     });
   });
@@ -33,7 +33,7 @@ describe('Decorators', () => {
   describe('debounce', function () {
     const func = function () {
       return 'called';
-    }
+    };
     debounceFn['mockImplementation'](function () {
       return func;
     });
@@ -49,12 +49,12 @@ describe('Decorators', () => {
       expect(debounceFn['mock'].calls[0][1]).toEqual(3000);
       expect(debounceFn['mock'].calls[0][2]).toEqual({});
     });
-  })
+  });
 
   describe('throttle', function () {
     const func = function () {
       return 'called';
-    }
+    };
     throttleFn['mockImplementation'](function () {
       return func;
     });
@@ -66,9 +66,9 @@ describe('Decorators', () => {
     }
     it('should call throttle', function () {
       new TestThrottle().method();
-      expect(debounceFn).toBeCalled();
-      expect(debounceFn['mock'].calls[0][1]).toEqual(3000);
-      expect(debounceFn['mock'].calls[0][2]).toEqual({});
+      expect(throttleFn).toBeCalled();
+      expect(throttleFn['mock'].calls[0][1]).toEqual(3000);
+      expect(throttleFn['mock'].calls[0][2]).toEqual({});
     });
   });
 
