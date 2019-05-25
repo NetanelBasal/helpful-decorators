@@ -1,4 +1,4 @@
-export function Mixin(baseCtors: Function[]) {
+export function Mixin(baseCtors: Function[]): any {
   return function(derivedCtor: Function) {
     baseCtors.forEach(baseCtor => {
       Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
