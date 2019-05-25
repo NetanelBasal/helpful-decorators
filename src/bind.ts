@@ -6,7 +6,7 @@
  * and memoize the result against a symbol on the instance
  */
 
-export function bind(target, key, descriptor) {
+export function bind(target, key, descriptor): any {
   let fn = descriptor.value;
 
   if (typeof fn !== 'function') {

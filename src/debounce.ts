@@ -1,6 +1,6 @@
 const debounceFn = require('lodash.debounce');
 
-export function debounce(milliseconds: number = 0, options = {}) {
+export function debounce(milliseconds: number = 0, options = {}): any {
   return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
     const map = new WeakMap();
     const originalMethod = descriptor.value;

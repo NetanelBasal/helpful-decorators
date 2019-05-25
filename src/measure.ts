@@ -1,4 +1,4 @@
-export function measure(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+export function measure(target: any, propertyKey: string, descriptor: PropertyDescriptor): any {
   const originalMethod = descriptor.value;
 
   descriptor.value = function(...args) {
