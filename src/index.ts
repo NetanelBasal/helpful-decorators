@@ -6,3 +6,4 @@ export { once } from './once';
 export { Mixin } from './mixin';
 export { memo } from './memoize';
 export { bind } from './bind';
+export { arraySort } from './array-sort';

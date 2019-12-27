@@ -118,6 +118,62 @@ export class AppComponent {
 }
 ```
 
+`arraySort` - sort an array by a specific property in individual elements
+```js
+import { arraySort } from 'helpful-decorators';
+
+class Test {
+  
+  @arraySort('name')
+  testingArrayAscending = [
+    {
+      name: 'b'
+    },
+    {
+      name: 'a'
+    },
+    {
+      name: 'c'
+    }
+  ];
+  /* Output:
+    TestInstance.testingArrayAscending === [
+      {
+       name: 'a'
+     },
+     {
+       name: 'b'
+     },
+     {
+       name: 'c'
+     }
+  ];*/
+  
+  @arraySort('name', true) // true: descending; false(default): ascending
+    {
+      name: 'b'
+    },
+    {
+      name: 'a'
+    },
+    {
+      name: 'c'
+    }
+  ];
+  /* Output:
+    TestInstance.testingArrayDescending === [
+      {
+        name: 'c'
+      },
+      {
+        name: 'b'
+      },
+      {
+        name: 'a'
+      }
+  ];*/
+}
+```
  
 License
 ----

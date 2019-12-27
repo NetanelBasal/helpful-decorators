@@ -1,4 +1,4 @@
-import { debounce, throttle, once } from '../src';
+import { debounce, throttle, once, arraySort } from '../src';
 jest.mock('lodash.debounce');
 jest.mock('lodash.throttle');
 import * as throttleFn from 'lodash.throttle';
@@ -64,6 +64,112 @@ describe('Decorators', () => {
       instance.method();
       expect(consoleSpy).toBeCalled();
       expect(consoleSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('arraySort', function() {
+    
+    it('should sort testing array by name property in ascending order', function() {
+      class TestArraySortAscending {
+        @arraySort('name')
+        testingArray = [
+          {
+            name: 'b'
+          },
+          {
+            name: 'a'
+          },
+          {
+            name: 'c'
+          }
+        ]; 
+      }
+      
+      const instance = new TestArraySortAscending();
+      
+      expect(instance.testingArray).toEqual([
+        {
+          name: 'a'
+        },
+        {
+          name: 'b'
+        },
+        {
+          name: 'c'
+        }
+      ]);
+    });
+
+    it('should sort testing array by name property in descending order', function() {
+      class TestArraySortDescending {
+        @arraySort('name', true)
+        testingArray = [
+          {
+            name: 'b'
+          },
+          {
+            name: 'a'
+          },
+          {
+            name: 'c'
+          }
+        ]; 
+      }
+      const instance = new TestArraySortDescending();
+      expect(instance.testingArray).toEqual([
+        {
+          name: 'c'
+        },
+        {
+          name: 'b'
+        },
+        {
+          name: 'a'
+        }
+      ]);
+    });
+
+    it('should throw error if value is not an array', function() {
+      class TestTypeError {
+        @arraySort('name', true)
+        testingArray; 
+      }
+      const instance = new TestTypeError();
+      try {
+        instance.testingArray = 'abc';
+      } catch (e) {
+        expect(e).toBe(`Value of property testingArray is not a valid array!`);
+      }
+      try {
+        instance.testingArray = undefined;
+      } catch (e) {
+        expect(e).toBe(`Value of property testingArray is not a valid array!`);
+      }
+      try {
+        instance.testingArray = null;
+      } catch (e) {
+        expect(e).toBe(`Value of property testingArray is not a valid array!`);
+      }
+      try {
+        instance.testingArray = 1234;
+      } catch (e) {
+        expect(e).toBe(`Value of property testingArray is not a valid array!`);
+      }
+      try {
+        instance.testingArray = [
+          {
+            id: 'a'
+          },
+          {
+            id: 'b'
+          },
+          {
+            id: 'c'
+          }
+        ];
+      } catch (e) {
+        expect(e).toBe(`Property testingArray has some elements that do not have property name!`);
+      }
     });
   });
 });
