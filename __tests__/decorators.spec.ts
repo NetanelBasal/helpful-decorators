@@ -1,4 +1,4 @@
-import { debounce, throttle, once, arraySort } from '../src';
+import { debounce, throttle, once, SortBy } from '../src';
 jest.mock('lodash.debounce');
 jest.mock('lodash.throttle');
 import * as throttleFn from 'lodash.throttle';
@@ -71,7 +71,10 @@ describe('Decorators', () => {
     
     it('should sort testing array by name property in ascending order', function() {
       class TestArraySortAscending {
-        @arraySort('name')
+        @SortBy('name', {
+          isDescending: false,
+          type: 'string'
+        })
         testingArray = [
           {
             name: 'b'
@@ -102,7 +105,10 @@ describe('Decorators', () => {
 
     it('should sort testing array by name property in descending order', function() {
       class TestArraySortDescending {
-        @arraySort('name', true)
+        @SortBy('name', {
+          isDescending: true,
+          type: 'string'
+        })
         testingArray = [
           {
             name: 'b'
@@ -129,9 +135,70 @@ describe('Decorators', () => {
       ]);
     });
 
+    it('should sort array containing non-object items in ascending order', function() {
+      class TestArraySortDescending {
+        @SortBy('', {
+          isDescending: false,
+          type: 'number'
+        })
+        testingArray = [ 6, 3, 4, 1 ]; 
+      }
+      const instance = new TestArraySortDescending();
+      expect(instance.testingArray).toEqual([ 1, 3, 4, 6 ]);
+    });
+    
+    it('should sort array containing non-object items in ascending order', function() {
+      class TestArraySortDescending {
+        @SortBy('', {
+          isDescending: false,
+          type: 'number'
+        })
+        testingArray = [ 6, 3, 4, 1 ]; 
+      }
+      const instance = new TestArraySortDescending();
+      expect(instance.testingArray).toEqual([ 1, 3, 4, 6 ]);
+    });
+    
+    it('should be able to sort date type items', function() {
+      class TestArraySortDescending {
+        @SortBy('', {
+          isDescending: true,
+          type: 'date'
+        })
+        testingArray = [ '2020-06-17', '2020-06-16', '2020-06-20', '2020-06-10' ]; 
+      }
+      const instance = new TestArraySortDescending();
+      expect(instance.testingArray).toEqual([ '2020-06-20', '2020-06-17', '2020-06-16', '2020-06-10' ]);
+    });
+    
+    it('should throw error if any element cannot be convert to date type when predefined type is date', function() {
+      class TestArraySortDescending {
+        @SortBy('', {
+          isDescending: false,
+          type: 'date'
+        })
+        testingArray;
+      }
+      const instance = new TestArraySortDescending();
+      try {
+        instance.testingArray = [ 'aaaa', undefined, '2020-06-20', '2020-06-10' ];
+      } catch (e) {
+        expect(e).toBe(`Value aaaa is not of predefined type date`);
+      }
+      
+      try {
+        instance.testingArray = [ undefined, '2020-06-20', '2020-06-10' ];
+      } catch (e) {
+        expect(e).toBe(`Value undefined is not of predefined type date`);
+      }
+    });
+
     it('should throw error if value is not an array', function() {
       class TestTypeError {
-        @arraySort('name', true)
+        @SortBy('name', {
+          isDescending: true,
+          type: 'string'
+        })
         testingArray; 
       }
       const instance = new TestTypeError();
