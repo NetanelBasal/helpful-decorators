@@ -128,19 +128,19 @@ class Test {
     isDescending: false,
     type: 'string'
   })
-  stringArray = [ { name: 'b' }, { name: 'a' }, { name: 'c' } ];
+  names = [ { name: 'b' }, { name: 'a' }, { name: 'c' } ];
 
   @SortBy('', {
     isDescending: true,
     type: 'date'
   })
-  dateArray = [ '2020-06-17', '2020-06-16', '2020-06-20', '2020-06-10' ];
+  dates = [ '2020-06-17', '2020-06-16', '2020-06-20', '2020-06-10' ];
 
   @SortBy('', {
     isDescending: false,
     type: 'number'
   })
-  numberArray = [ 6, 3, 4, 1 ];
+  numbers = [ 6, 3, 4, 1 ];
 }
 ```
  
