@@ -118,7 +118,7 @@ export class AppComponent {
 }
 ```
 
-`SortBy` - sort an array by a specific property in individual elements
+`SortBy` - sort an array by a specific property in individual elements or non-object items
 ```js
 import { arraySort } from 'helpful-decorators';
 
@@ -128,56 +128,19 @@ class Test {
     isDescending: false,
     type: 'string'
   })
-  testingArrayAscending = [
-    {
-      name: 'b'
-    },
-    {
-      name: 'a'
-    },
-    {
-      name: 'c'
-    }
-  ];
-  /* Output:
-    TestInstance.testingArrayAscending === [
-      {
-       name: 'a'
-     },
-     {
-       name: 'b'
-     },
-     {
-       name: 'c'
-     }
-  ];*/
-  
-  @SortBy('name', {
+  stringArray = [ { name: 'b' }, { name: 'a' }, { name: 'c' } ];
+
+  @SortBy('', {
     isDescending: true,
-    type: 'string'
-  }) // true(default): descending; false: ascending
-  testingArrayAscending =  {
-      name: 'b'
-    },
-    {
-      name: 'a'
-    },
-    {
-      name: 'c'
-    }
-  ];
-  /* Output:
-    TestInstance.testingArrayDescending === [
-      {
-        name: 'c'
-      },
-      {
-        name: 'b'
-      },
-      {
-        name: 'a'
-      }
-  ];*/
+    type: 'date'
+  })
+  dateArray = [ '2020-06-17', '2020-06-16', '2020-06-20', '2020-06-10' ];
+
+  @SortBy('', {
+    isDescending: false,
+    type: 'number'
+  })
+  numberArray = [ 6, 3, 4, 1 ];
 }
 ```
  
