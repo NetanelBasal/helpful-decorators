@@ -120,7 +120,7 @@ export class AppComponent {
 
 `SortBy` - sort an array by a specific property in individual elements or non-object items
 ```js
-import { arraySort } from 'helpful-decorators';
+import { SortBy } from 'helpful-decorators';
 
 class Test {
   
