@@ -161,7 +161,7 @@ describe('Decorators', () => {
     });
     
     
-    describe('Type: number', function() {
+    describe('Nullish Values', function() {
       it('should push nullish values to the end of array', function() {
         const testingArray = [ '2020-06-17', undefined, '2020-06-16', null, '2020-06-20', '2020-06-10' ]; 
         const expectArray = [ '2020-06-20', '2020-06-17', '2020-06-16', '2020-06-10', null, undefined]; 
