@@ -118,7 +118,7 @@ export class AppComponent {
 }
 ```
 
-`SortBy` - sort an array by a specific property in individual elements or non-object items
+`SortBy` - sort an array by a specific property in individual elements or non-object items (By default, it sorts by `type === 'string'` and `isDescending === true`)
 ```js
 import { SortBy } from 'helpful-decorators';
 
