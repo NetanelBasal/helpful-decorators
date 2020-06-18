@@ -70,18 +70,18 @@ describe('Decorators', () => {
   describe('arraySort', function() {
 
     function testClass(
-			array: any[],
-			sortByProperty: string,
-			config?: {
-				isDescending: boolean;
-				type: string;
-			},
-		) {
+      array: any[],
+      sortByProperty: string,
+      config?: {
+        isDescending: boolean;
+        type: string;
+      },
+    ) {
       class TestClass {
         @SortBy(sortByProperty, config)
-				testingArray = array;
+        testingArray = array;
       }
-			return new TestClass();
+      return new TestClass();
     }
     
     describe('Default Config: { isDescending: true, type: \'string\', }', function() {
@@ -166,8 +166,8 @@ describe('Decorators', () => {
         const testingArray = [ '2020-06-17', undefined, '2020-06-16', null, '2020-06-20', '2020-06-10' ]; 
         const expectArray = [ '2020-06-20', '2020-06-17', '2020-06-16', '2020-06-10', null, undefined]; 
         const instance = testClass(testingArray, '',  {
-          isDescending: false,
-          type: 'number'
+          isDescending: true,
+          type: 'date'
         });
         expect(instance.testingArray).toEqual(expectArray);
       });
