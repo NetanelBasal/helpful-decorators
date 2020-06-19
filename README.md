@@ -118,6 +118,31 @@ export class AppComponent {
 }
 ```
 
+`SortBy` - sort an array by a specific property in individual elements or non-object items (By default, it sorts by `type === 'string'` and `isDescending === true`)
+```js
+import { SortBy } from 'helpful-decorators';
+
+class Test {
+  
+  @SortBy('name', {
+    isDescending: false,
+    type: 'string'
+  })
+  names = [ { name: 'b' }, { name: 'a' }, { name: 'c' } ];
+
+  @SortBy('', {
+    isDescending: true,
+    type: 'date'
+  })
+  dates = [ '2020-06-17', '2020-06-16', '2020-06-20', '2020-06-10' ];
+
+  @SortBy('', {
+    isDescending: false,
+    type: 'number'
+  })
+  numbers = [ 6, 3, 4, 1 ];
+}
+```
  
 License
 ----
