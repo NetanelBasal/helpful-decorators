@@ -1,4 +1,4 @@
-export { measure } from './measure';
+export { measure, measureAsync } from './measure';
 export { delay } from './delay';
 export { debounce } from './debounce';
 export { throttle } from './throttle';
