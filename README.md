@@ -72,8 +72,14 @@ class Test {
  doSomething() {
    // Call to doSomething took 0.35 milliseconds.
  }
+
+ @measure
+ async doSomethingHello(){
+    // Call to doSomethingHello took 0.35 milliseconds. 
+ }
 }
 ```
+
 
 `Mixin` - this pattern is used to achieve multiple inheritance
 ```js
