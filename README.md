@@ -63,7 +63,7 @@ class Test {
 }
 ```
 
-`measure` - measure time taken by a sync function to execute
+`measure` - measure time taken by a function to execute
 ```js
 import { measure } from 'helpful-decorators';
 
@@ -72,18 +72,10 @@ class Test {
  doSomething() {
    // Call to doSomething took 0.35 milliseconds.
  }
-}
-```
 
-`measureAsync` - measure time taken by an async function to execute
-
-```js
-import { measureAsync } from 'helpful-decorators';
-
-class Test {
- @measureAsync
- async doSomething() {
-   // Call to doSomething took 0.35 milliseconds.
+ @measure
+ async doSomethingHello(){
+    // Call to doSomethingHello took 0.35 milliseconds. 
  }
 }
 ```
