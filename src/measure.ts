@@ -2,13 +2,14 @@ import * as util from 'util'
 
 export function measure(target: any, propertyKey: string, descriptor: PropertyDescriptor): any {
   const originalMethod = descriptor.value;
+  const name = target && target.constructor && target.constructor.name ? `${target.constructor.name}.${propertyKey}` : propertyKey;
 
   if (util.types.isAsyncFunction(originalMethod)) {
     descriptor.value = async function (...args: any): Promise<any> {
       const start = performance.now();
       const result = await originalMethod.apply(this, args);
       const end = performance.now();
-      console.log(`Call to ${propertyKey} took ${(end - start).toFixed(2)} milliseconds.`);
+      console.log(`Call to ${name} took ${(end - start).toFixed(2)} milliseconds.`);
       return result;
     }
   } else {
@@ -16,7 +17,7 @@ export function measure(target: any, propertyKey: string, descriptor: PropertyDe
       const start = performance.now();
       const result = originalMethod.apply(this, args);
       const end = performance.now();
-      console.log(`Call to ${propertyKey} took ${(end - start).toFixed(2)} milliseconds.`);
+      console.log(`Call to ${name} took ${(end - start).toFixed(2)} milliseconds.`);
       return result;
     };
   }
